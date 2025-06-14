@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Solar System Simulation</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: sans-serif;
+        background-color: black;
+        color: white;
+      }
+
+      body.light-mode {
+        background-color: white;
+        color: black;
+      }
+
+      #controls {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        border-radius: 8px;
+        color: white;
+        z-index: 1;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      body.light-mode #controls {
+        background: rgba(255, 255, 255, 0.8);
+        color: black;
+      }
+
+      #buttonContainer {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 10;
+      }
+
+      #toggleBtn,
+      #themeToggle {
+        padding: 8px 12px;
+        background: #333;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      body.light-mode #toggleBtn,
+      body.light-mode #themeToggle {
+        background: #ddd;
+        color: black;
+      }
+
+
+
+      #tooltip {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        display: none;
+        z-index: 10;
+        color: black;
+      }
+
+      #resetContainer {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 10;
+      }
+
+      #resetBtn {
+        padding: 8px 12px;
+        background: #333;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      #resetBtn:hover {
+        background: #555;
+      }
+
+      body.light-mode #resetBtn {
+       background: #ccc;
+       color: black;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="controls"></div>
+
+    <div id="buttonContainer">
+      <button id="toggleBtn">Pause</button>
+      <button id="themeToggle">🌙 Dark Mode</button>
+    </div>
+
+    <div id="resetContainer">
+      <button id="resetBtn">Reset Zoom</button>
+    </div>
+
+
+    <div id="tooltip"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
